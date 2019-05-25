@@ -1,0 +1,59 @@
+.cardTitle{
+    padding-top: 10px;
+    color: black;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+ }
+
+.cardCategory{
+    color: black;
+    font-size: 15px;
+    margin-right: 10px;
+}
+
+.areaCardBody{
+    display: flex;
+    align-items: center;
+}
+
+.areaCardBody:hover{
+    background-color: rgba(232, 236, 241, 0.3)
+}
+
+
+.areaCardImage{
+flex-grow: 1
+}
+
+.areaCardText{
+   flex-grow: 4
+}
+ 
+.productsScroll{
+    overflow: scroll;
+    scrollbar-width: 2px;
+    height: 300px;
+    overflow-x: hidden;
+}
+
+.productsScroll a div h3{
+    color: #FFA522
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #FFA522; 
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #b30000; 
+  }
