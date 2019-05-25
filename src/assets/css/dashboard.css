@@ -31,12 +31,27 @@ flex-grow: 1
 .areaCardText{
    flex-grow: 4
 }
+
+.areaCardText h3{
+    font-size: 1.8vw
+ }
  
 .productsScroll{
     overflow: scroll;
     scrollbar-width: 2px;
     height: 300px;
     overflow-x: hidden;
+}
+
+.areaScroll{
+    overflow: scroll;
+    scrollbar-width: 2px;
+    height: 300px;
+    overflow-x: hidden;
+}
+
+.areaScroll a div h3{
+    color: #A641B9
 }
 
 .productsScroll a div h3{
@@ -48,12 +63,54 @@ flex-grow: 1
   }
   
   /* Handle */
-  ::-webkit-scrollbar-thumb {
+  .areaScroll::-webkit-scrollbar-thumb {
+    background: #A641B9; 
+    border-radius: 10px;
+  }
+
+
+  .productsScroll::-webkit-scrollbar-thumb {
     background: #FFA522; 
     border-radius: 10px;
   }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: #b30000; 
+
+
+  .areaHeader{
+      display: flex;
+      flex-direction: row;
+      height: 50px;
+      justify-content:flex-start;
+      align-items: center;
   }
+
+.areaHeaderText{
+    font-size: 1.8vw;
+}
+
+@media(max-width:1000px){
+    .areaHeaderText{
+        font-size: 20px;
+    }
+
+    .areaCardText h3{
+        font-size: 20px
+     }
+     
+}
+
+@media(max-width:450px){
+      .areaHeaderText{
+          font-size: 20px;
+      }
+  }
+
+@media(max-width:400px){
+    .areaHeaderText{
+        font-size: 17px;
+    }
+
+    .areaCardText h3{
+        font-size: 17px;
+     }
+     
+}

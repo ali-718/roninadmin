@@ -122,10 +122,12 @@ class Dashboard extends React.Component {
           {/* Area Management */}
           <GridItem xs={12} sm={12} md={12}>
           <Card xs={12} sm={12} md={12}>
-            <CardHeader color="primary">
-              <h3 className={classes.cardTitleWhite}>Area Management</h3>
+            <CardHeader color="primary" className="areaHeader">
+              <p className="areaHeaderText">Area Management</p>
+              <div style={{flex:1}}></div>
+              <i class="material-icons">add_circle_outline</i>
             </CardHeader>
-            <CardBody >
+            <CardBody className="areaScroll">
               <a className="areaCardBody" href="#pas">
                 <div className="areaCardImage">
                  <img src={avatar} alt="..." style={{width:100,height:100}} />
@@ -165,8 +167,10 @@ class Dashboard extends React.Component {
             {/* Products Management */}
             <GridItem xs={12} sm={12} md={12}>
           <Card xs={12} sm={12} md={12}>
-            <CardHeader color="warning">
-              <h3 className={classes.cardTitleWhite}>Products</h3>
+          <CardHeader color="warning" className="areaHeader">
+              <p className="areaHeaderText">Products</p>
+              <div style={{flex:1}}></div>
+              <i class="material-icons">add_circle_outline</i>
             </CardHeader>
             <CardBody className="productsScroll">
               <a className="areaCardBody" href="#pas">
