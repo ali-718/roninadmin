@@ -39,13 +39,13 @@ import {
   completedTasksChart
 } from "variables/charts.jsx";
 
-
-import '../../assets/css/dashboard.css';
+import "../../assets/css/dashboard.css";
 import dashboardStyle from "assets/jss/material-dashboard-react/views/dashboardStyle.jsx";
 
 class Dashboard extends React.Component {
   state = {
-    value: 0
+    value: 0,
+    anchorEl: null
   };
   handleChange = (event, value) => {
     this.setState({ value });
@@ -53,6 +53,14 @@ class Dashboard extends React.Component {
 
   handleChangeIndex = index => {
     this.setState({ value: index });
+  };
+
+  handlePopoverOpen = event => {
+    this.setState({ anchorEl: event.currentTarget });
+  };
+
+  handlePopoverClose = () => {
+    this.setState({ anchorEl: null });
   };
   render() {
     const { classes } = this.props;
@@ -62,7 +70,7 @@ class Dashboard extends React.Component {
           <GridItem xs={12} sm={6} md={4}>
             {/* <a href="/pablo" onClick={e => e.preventDefault()}> */}
             <Card>
-              <CardHeader  color="warning" stats icon>
+              <CardHeader color="warning" stats icon>
                 <CardIcon color="warning">
                   <Icon>content_copy</Icon>
                 </CardIcon>
@@ -71,10 +79,8 @@ class Dashboard extends React.Component {
               </CardHeader>
               <CardFooter stats>
                 <div className={classes.stats}>
-                <i class="material-icons">pageview</i>
-                  <a href="http://localhost:3000/admin/user">
-                    View
-                  </a>
+                  <i class="material-icons">pageview</i>
+                  <a href="http://localhost:3000/admin/user">View</a>
                 </div>
               </CardFooter>
             </Card>
@@ -91,10 +97,8 @@ class Dashboard extends React.Component {
               </CardHeader>
               <CardFooter stats>
                 <div className={classes.stats}>
-                <i class="material-icons">pageview</i>
-                  <a href="http://localhost:3000/admin/user">
-                    View
-                  </a>
+                  <i class="material-icons">pageview</i>
+                  <a href="http://localhost:3000/admin/user">View</a>
                 </div>
               </CardFooter>
             </Card>
@@ -110,10 +114,8 @@ class Dashboard extends React.Component {
               </CardHeader>
               <CardFooter stats>
                 <div className={classes.stats}>
-                <i class="material-icons">pageview</i>
-                  <a href="http://localhost:3000/admin/user">
-                    View
-                  </a>
+                  <i class="material-icons">pageview</i>
+                  <a href="http://localhost:3000/admin/user">View</a>
                 </div>
               </CardFooter>
             </Card>
@@ -121,107 +123,151 @@ class Dashboard extends React.Component {
 
           {/* Area Management */}
           <GridItem xs={12} sm={12} md={12}>
-          <Card xs={12} sm={12} md={12}>
-            <CardHeader color="primary" className="areaHeader">
-              <p className="areaHeaderText">Area Management</p>
-              <div style={{flex:1}}></div>
-              <i class="material-icons">add_circle_outline</i>
-            </CardHeader>
-            <CardBody className="areaScroll">
-              <a className="areaCardBody" href="#pas">
-                <div className="areaCardImage">
-                 <img src={avatar} alt="..." style={{width:100,height:100}} />
-                </div>
-                <div className="areaCardText">
-                  <h3>Saddar</h3>
-                </div>
-              </a>
-              <a className="areaCardBody" href="#pas">
-                <div className="areaCardImage">
-                 <img src={avatar} alt="..." style={{width:100,height:100}} />
-                </div>
-                <div className="areaCardText">
-                  <h3>Hadeed</h3>
-                </div>
-              </a>
-              <a className="areaCardBody" href="#pas">
-                <div className="areaCardImage">
-                 <img src={avatar} alt="..." style={{width:100,height:100}} />
-                </div>
-                <div className="areaCardText">
-                  <h3>Malir</h3>
-                </div>
-              </a>
-              <a className="areaCardBody" href="#pas">
-                <div className="areaCardImage">
-                 <img src={avatar} alt="..." style={{width:100,height:100}} />
-                </div>
-                <div className="areaCardText">
-                  <h3>Gulshan</h3>
-                </div>
-              </a>
-            </CardBody>
+            <Card xs={12} sm={12} md={12}>
+              <CardHeader color="primary" className="areaHeader">
+                <p className="areaHeaderText">Area Management</p>
+                <div style={{ flex: 1 }} />
+                <a href="#" onClick={e => e.preventDefault()}>
+                  <i class="material-icons addIcon">add_circle_outline</i>
+                </a>
+              </CardHeader>
+              <CardBody className="areaScroll">
+                <a className="areaCardBody" href="#pas">
+                  <div className="areaCardImage">
+                    <img
+                      src={avatar}
+                      alt="..."
+                      style={{ width: 100, height: 100 }}
+                    />
+                  </div>
+                  <div className="areaCardText">
+                    <h3>Saddar</h3>
+                  </div>
+                </a>
+                <a className="areaCardBody" href="#pas">
+                  <div className="areaCardImage">
+                    <img
+                      src={avatar}
+                      alt="..."
+                      style={{ width: 100, height: 100 }}
+                    />
+                  </div>
+                  <div className="areaCardText">
+                    <h3>Hadeed</h3>
+                  </div>
+                </a>
+                <a className="areaCardBody" href="#pas">
+                  <div className="areaCardImage">
+                    <img
+                      src={avatar}
+                      alt="..."
+                      style={{ width: 100, height: 100 }}
+                    />
+                  </div>
+                  <div className="areaCardText">
+                    <h3>Malir</h3>
+                  </div>
+                </a>
+                <a className="areaCardBody" href="#pas">
+                  <div className="areaCardImage">
+                    <img
+                      src={avatar}
+                      alt="..."
+                      style={{ width: 100, height: 100 }}
+                    />
+                  </div>
+                  <div className="areaCardText">
+                    <h3>Gulshan</h3>
+                  </div>
+                </a>
+              </CardBody>
             </Card>
           </GridItem>
 
-            {/* Products Management */}
-            <GridItem xs={12} sm={12} md={12}>
-          <Card xs={12} sm={12} md={12}>
-          <CardHeader color="warning" className="areaHeader">
-              <p className="areaHeaderText">Products</p>
-              <div style={{flex:1}}></div>
-              <i class="material-icons">add_circle_outline</i>
-            </CardHeader>
-            <CardBody className="productsScroll">
-              <a className="areaCardBody" href="#pas">
-                <div className="areaCardImage">
-                 <img src={avatar} alt="..." style={{width:100,height:100}} />
-                </div>
-                <div className="areaCardText">
-                  <h3>Charger</h3>
-                </div>
-              </a>
-              <a className="areaCardBody" href="#pas">
-                <div className="areaCardImage">
-                 <img src={avatar} alt="..." style={{width:100,height:100}} />
-                </div>
-                <div className="areaCardText">
-                  <h3>Data cable</h3>
-                </div>
-              </a>
-              <a className="areaCardBody" href="#pas">
-                <div className="areaCardImage">
-                 <img src={avatar} alt="..." style={{width:100,height:100}} />
-                </div>
-                <div className="areaCardText">
-                  <h3>Mobiles</h3>
-                </div>
-              </a>
-              <a className="areaCardBody" href="#pas">
-                <div className="areaCardImage">
-                 <img src={avatar} alt="..." style={{width:100,height:100}} />
-                </div>
-                <div className="areaCardText">
-                  <h3>Laptops</h3>
-                </div>
-              </a>
-              <a className="areaCardBody" href="#pas">
-                <div className="areaCardImage">
-                 <img src={avatar} alt="..." style={{width:100,height:100}} />
-                </div>
-                <div className="areaCardText">
-                  <h3>Camera</h3>
-                </div>
-              </a>
-              <a className="areaCardBody" href="#pas">
-                <div className="areaCardImage">
-                 <img src={avatar} alt="..." style={{width:100,height:100}} />
-                </div>
-                <div className="areaCardText">
-                  <h3>Dispenser</h3>
-                </div>
-              </a>
-            </CardBody>
+          {/* Products Management */}
+          <GridItem xs={12} sm={12} md={12}>
+            <Card xs={12} sm={12} md={12}>
+              <CardHeader color="warning" className="areaHeader">
+                <p className="areaHeaderText">Products</p>
+                <div style={{ flex: 1 }} />
+                <a href="#" onClick={e => e.preventDefault()}>
+                  <i class="material-icons addIcon">add_circle_outline</i>
+                </a>
+              </CardHeader>
+              <CardBody className="productsScroll">
+                <a className="areaCardBody" href="#pas">
+                  <div className="areaCardImage">
+                    <img
+                      src={avatar}
+                      alt="..."
+                      style={{ width: 100, height: 100 }}
+                    />
+                  </div>
+                  <div className="areaCardText">
+                    <h3>Charger</h3>
+                  </div>
+                </a>
+                <a className="areaCardBody" href="#pas">
+                  <div className="areaCardImage">
+                    <img
+                      src={avatar}
+                      alt="..."
+                      style={{ width: 100, height: 100 }}
+                    />
+                  </div>
+                  <div className="areaCardText">
+                    <h3>Data cable</h3>
+                  </div>
+                </a>
+                <a className="areaCardBody" href="#pas">
+                  <div className="areaCardImage">
+                    <img
+                      src={avatar}
+                      alt="..."
+                      style={{ width: 100, height: 100 }}
+                    />
+                  </div>
+                  <div className="areaCardText">
+                    <h3>Mobiles</h3>
+                  </div>
+                </a>
+                <a className="areaCardBody" href="#pas">
+                  <div className="areaCardImage">
+                    <img
+                      src={avatar}
+                      alt="..."
+                      style={{ width: 100, height: 100 }}
+                    />
+                  </div>
+                  <div className="areaCardText">
+                    <h3>Laptops</h3>
+                  </div>
+                </a>
+                <a className="areaCardBody" href="#pas">
+                  <div className="areaCardImage">
+                    <img
+                      src={avatar}
+                      alt="..."
+                      style={{ width: 100, height: 100 }}
+                    />
+                  </div>
+                  <div className="areaCardText">
+                    <h3>Camera</h3>
+                  </div>
+                </a>
+                <a className="areaCardBody" href="#pas">
+                  <div className="areaCardImage">
+                    <img
+                      src={avatar}
+                      alt="..."
+                      style={{ width: 100, height: 100 }}
+                    />
+                  </div>
+                  <div className="areaCardText">
+                    <h3>Dispenser</h3>
+                  </div>
+                </a>
+              </CardBody>
             </Card>
           </GridItem>
         </GridContainer>

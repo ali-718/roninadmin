@@ -1,116 +1,119 @@
-.cardTitle{
-    padding-top: 10px;
-    color: black;
+.cardTitle {
+  padding-top: 10px;
+  color: black;
 }
 
-.card{
-    display: flex;
-    flex-direction: column;
- }
-
-.cardCategory{
-    color: black;
-    font-size: 15px;
-    margin-right: 10px;
+.card {
+  display: flex;
+  flex-direction: column;
 }
 
-.areaCardBody{
-    display: flex;
-    align-items: center;
+.cardCategory {
+  color: black;
+  font-size: 15px;
+  margin-right: 10px;
 }
 
-.areaCardBody:hover{
-    background-color: rgba(232, 236, 241, 0.3)
+.areaCardBody {
+  display: flex;
+  align-items: center;
 }
 
-
-.areaCardImage{
-flex-grow: 1
+.areaCardBody:hover {
+  background-color: rgba(232, 236, 241, 0.3);
 }
 
-.areaCardText{
-   flex-grow: 4
+.areaCardImage {
+  flex-grow: 1;
 }
 
-.areaCardText h3{
-    font-size: 1.8vw
- }
- 
-.productsScroll{
-    overflow: scroll;
-    scrollbar-width: 2px;
-    height: 300px;
-    overflow-x: hidden;
+.areaCardText {
+  flex-grow: 4;
 }
 
-.areaScroll{
-    overflow: scroll;
-    scrollbar-width: 2px;
-    height: 300px;
-    overflow-x: hidden;
+.areaCardText h3 {
+  font-size: 1.8vw;
 }
 
-.areaScroll a div h3{
-    color: #A641B9
+.productsScroll {
+  overflow: scroll;
+  scrollbar-width: 2px;
+  height: 300px;
+  overflow-x: hidden;
 }
 
-.productsScroll a div h3{
-    color: #FFA522
+.areaScroll {
+  overflow: scroll;
+  scrollbar-width: 2px;
+  height: 300px;
+  overflow-x: hidden;
+}
+
+.areaScroll a div h3 {
+  color: #a641b9;
+}
+
+.productsScroll a div h3 {
+  color: #ffa522;
 }
 
 ::-webkit-scrollbar {
-    width: 10px;
-  }
-  
-  /* Handle */
-  .areaScroll::-webkit-scrollbar-thumb {
-    background: #A641B9; 
-    border-radius: 10px;
-  }
-
-
-  .productsScroll::-webkit-scrollbar-thumb {
-    background: #FFA522; 
-    border-radius: 10px;
-  }
-
-
-  .areaHeader{
-      display: flex;
-      flex-direction: row;
-      height: 50px;
-      justify-content:flex-start;
-      align-items: center;
-  }
-
-.areaHeaderText{
-    font-size: 1.8vw;
+  width: 10px;
 }
 
-@media(max-width:1000px){
-    .areaHeaderText{
-        font-size: 20px;
-    }
-
-    .areaCardText h3{
-        font-size: 20px
-     }
-     
+/* Handle */
+.areaScroll::-webkit-scrollbar-thumb {
+  background: #a641b9;
+  border-radius: 10px;
 }
 
-@media(max-width:450px){
-      .areaHeaderText{
-          font-size: 20px;
-      }
+.productsScroll::-webkit-scrollbar-thumb {
+  background: #ffa522;
+  border-radius: 10px;
+}
+
+.areaHeader {
+  display: flex;
+  flex-direction: row;
+  height: 50px;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.areaHeaderText {
+  font-size: 1.8vw;
+}
+
+.addIcon {
+  color: white;
+}
+
+.addIcon:hover {
+  color: lightgray;
+}
+
+@media (max-width: 1000px) {
+  .areaHeaderText {
+    font-size: 20px;
   }
 
-@media(max-width:400px){
-    .areaHeaderText{
-        font-size: 17px;
-    }
+  .areaCardText h3 {
+    font-size: 20px;
+  }
+}
 
-    .areaCardText h3{
-        font-size: 17px;
-     }
-     
+@media (max-width: 450px) {
+  .areaHeaderText {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 400px) {
+  .areaHeaderText {
+    font-size: 17px;
+  }
+
+  .areaCardText h3 {
+    font-size: 17px;
+  }
 }
