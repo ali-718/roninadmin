@@ -9,7 +9,7 @@ import Table from "components/Table/Table.jsx";
 import Card from "components/Card/Card.jsx";
 import CardHeader from "components/Card/CardHeader.jsx";
 import CardBody from "components/Card/CardBody.jsx";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 import "../../assets/css/dashboard.css";
 
@@ -45,7 +45,7 @@ const styles = {
 
 class ProductsList extends Component {
   state = {
-    chargers: this.props.location.data[0]
+    chargers: typeof this.props.location.data == "undefined" ? [] : this.props.location.data[0] 
   };
   render() {
     const chargerList = this.state.chargers.map(list => (
@@ -64,20 +64,16 @@ class ProductsList extends Component {
       <GridItem xs={12} sm={12} md={12}>
         <Card xs={12} sm={12} md={12}>
           <CardHeader color="success" className="areaHeader">
-            <p className="areaHeaderText">{this.props.location.data[1]}</p>
+            <p className="areaHeaderText">{ typeof this.props.location.data == "undefined" ? "Undefined" : this.props.location.data[1]}</p>
             <div style={{ flex: 1 }} />
             <a href="" onClick={e => e.preventDefault()}>
               <i class="material-icons addIcon">add_circle_outline</i>
             </a>
           </CardHeader>
           <CardBody className="productsPage">
-            {this.state.chargers.length == 0 ? (
-              <div className="areaCardText">
-                <h3>There is nothing to show</h3>
-              </div>
-            ) : (
-              chargerList
-            )}
+            {this.state.chargers.length == 0 ? 
+          <Redirect from="/admin/products/items" to="/admin/products" /> : chargerList
+            }
           </CardBody>
         </Card>
       </GridItem>
