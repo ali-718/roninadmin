@@ -7,6 +7,7 @@ import LocationOn from "@material-ui/icons/LocationOn";
 import Notifications from "@material-ui/icons/Notifications";
 import Unarchive from "@material-ui/icons/Unarchive";
 import Language from "@material-ui/icons/Language";
+import Inbox from "@material-ui/icons/Inbox";
 // core components/views for Admin layout
 import DashboardPage from "views/Dashboard/Dashboard.jsx";
 import UserProfile from "views/UserProfile/UserProfile.jsx";
@@ -16,6 +17,7 @@ import Icons from "views/Icons/Icons.jsx";
 import Maps from "views/Maps/Maps.jsx";
 import NotificationsPage from "views/Notifications/Notifications.jsx";
 import Area from "views/Area/Area.jsx";
+import Products from "views/products/products.jsx";
 // core components/views for RTL layout
 import RTLPage from "views/RTLPage/RTLPage.jsx";
 
@@ -34,6 +36,14 @@ const dashboardRoutes = [
     rtlName: "لوحة القيادة",
     icon: LocationOn,
     component: Area,
+    layout: "/admin"
+  },
+  {
+    path: "/products",
+    name: "Products",
+    rtlName: "لوحة القيادة",
+    icon: Inbox,
+    component: Products,
     layout: "/admin"
   },
   {

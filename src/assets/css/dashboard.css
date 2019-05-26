@@ -57,6 +57,10 @@
   color: #ffa522;
 }
 
+.productsPage a div h3 {
+  color: #ffa522;
+}
+
 ::-webkit-scrollbar {
   width: 10px;
 }

@@ -5,6 +5,7 @@
   "private": false,
   "main": "dist/index.js",
   "dependencies": {
+    "@fortawesome/react-fontawesome": "^0.1.4",
     "@material-ui/core": "3.9.2",
     "@material-ui/icons": "3.0.2",
     "chartist": "0.10.1",
@@ -55,6 +56,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.8.2",
     "eslint-config-prettier": "4.0.0",
     "eslint-plugin-prettier": "3.0.1"
   }
