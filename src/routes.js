@@ -18,6 +18,7 @@ import Maps from "views/Maps/Maps.jsx";
 import NotificationsPage from "views/Notifications/Notifications.jsx";
 import Area from "views/Area/Area.jsx";
 import Products from "views/products/products.jsx";
+import Chargers from "views/products/chargers.jsx";
 // core components/views for RTL layout
 import RTLPage from "views/RTLPage/RTLPage.jsx";
 
@@ -71,14 +72,6 @@ const dashboardRoutes = [
     layout: "/admin"
   },
   {
-    path: "/icons",
-    name: "Icons",
-    rtlName: "الرموز",
-    icon: BubbleChart,
-    component: Icons,
-    layout: "/admin"
-  },
-  {
     path: "/maps",
     name: "Maps",
     rtlName: "خرائط",
@@ -94,14 +87,14 @@ const dashboardRoutes = [
     component: NotificationsPage,
     layout: "/admin"
   },
-  {
-    path: "/rtl-page",
-    name: "RTL Support",
-    rtlName: "پشتیبانی از راست به چپ",
-    icon: Language,
-    component: RTLPage,
-    layout: "/rtl"
-  }
+  // {
+  //   path: "/chargers",
+  //   name: () => null,
+  //   rtlName: () => null,
+  //   icon: ()=> null,
+  //   component: Chargers,
+  //   layout: "/admin",
+  // }
 ];
 
 export default dashboardRoutes;

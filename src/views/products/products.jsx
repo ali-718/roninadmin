@@ -11,6 +11,7 @@ import CardHeader from "components/Card/CardHeader.jsx";
 import CardBody from "components/Card/CardBody.jsx";
 
 import "../../assets/css/dashboard.css";
+import { Link } from 'react-router-dom';
 
 const styles = {
   cardCategoryWhite: {
@@ -48,21 +49,21 @@ function Products(props) {
     <GridItem xs={12} sm={12} md={12}>
       <Card xs={12} sm={12} md={12}>
         <CardHeader color="warning" className="areaHeader">
-          <p className="areaHeaderText">Products</p>
+          <p className="areaHeaderText">Category Management</p>
           <div style={{ flex: 1 }} />
           <a href="#" onClick={e => e.preventDefault()}>
             <i class="material-icons addIcon">add_circle_outline</i>
           </a>
         </CardHeader>
         <CardBody className="productsPage">
-          <a className="areaCardBody" href="#pas">
+          <Link className="areaCardBody" to={{pathname:"products/chargers"}}>
             <div className="areaCardImage">
               <img src={avatar} alt="..." style={{ width: 100, height: 100 }} />
             </div>
             <div className="areaCardText">
               <h3>Charger</h3>
             </div>
-          </a>
+          </Link>
           <a className="areaCardBody" href="#pas">
             <div className="areaCardImage">
               <img src={avatar} alt="..." style={{ width: 100, height: 100 }} />

@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React from "react";
 import PropTypes from "prop-types";
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Switch, Route, Redirect,Link } from "react-router-dom";
 // creates a beautiful scrollbar
 import PerfectScrollbar from "perfect-scrollbar";
 import "perfect-scrollbar/css/perfect-scrollbar.css";
@@ -19,20 +19,17 @@ import dashboardStyle from "assets/jss/material-dashboard-react/layouts/dashboar
 
 import image from "assets/img/sidebar-2.jpg";
 import logo from "assets/img/reactlogo.png";
+import Chargers from 'views/products/chargers.jsx';
+import DashboardPage from 'views/Dashboard/Dashboard.jsx';
+import Products from 'views/products/products.jsx';
+import Area from 'views/Area/Area.jsx';
 
 const switchRoutes = (
   <Switch>
-    {routes.map((prop, key) => {
-      if (prop.layout === "/admin") {
-        return (
-          <Route
-            path={prop.layout + prop.path}
-            component={prop.component}
-            key={key}
-          />
-        );
-      }
-    })}
+    <Route path="/admin/chargers" component={Chargers} />
+    <Route path="/admin/dashboard" component={Chargers} />
+    <Route path="/chargers" component={Chargers} />
+    <Route path="/chargers" component={Chargers} />
   </Switch>
 );
 
@@ -94,7 +91,7 @@ class Dashboard extends React.Component {
       <div className={classes.wrapper}>
         <Sidebar
           routes={routes}
-          logoText={"Creative Tim"}
+          logoText={"Ronin Admin"}
           logo={logo}
           image={this.state.image}
           handleDrawerToggle={this.handleDrawerToggle}
@@ -109,13 +106,24 @@ class Dashboard extends React.Component {
             {...rest}
           />
           {/* On the /maps route we want the map to be on full screen - this is not possible if the content and conatiner classes are present because they have some paddings which would make the map smaller */}
-          {this.getRoute() ? (
+          {/* {this.getRoute() ? (
             <div className={classes.content}>
               <div className={classes.container}>{switchRoutes}</div>
             </div>
           ) : (
             <div className={classes.map}>{switchRoutes}</div>
-          )}
+          )} */}
+          <Switch>
+          <div className={classes.content}>
+              <div className={classes.container}><Route path="/admin/dashboard" component={DashboardPage} /></div>
+              <div className={classes.container}><Route exact path="/admin/area" component={Area} /></div>
+              <div className={classes.container}><Route exact path="/admin/products" component={Products} /></div>
+              <div className={classes.container}><Route path="/admin/products/chargers" component={Chargers} /></div>
+              <div className={classes.container}></div>
+              <div className={classes.container}></div>
+            </div>
+            <Route path="/chargers" component={Chargers} />
+          </Switch>
           {this.getRoute() ? <Footer /> : null}
         </div>
       </div>
