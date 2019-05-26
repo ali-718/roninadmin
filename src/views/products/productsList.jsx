@@ -9,6 +9,7 @@ import Table from "components/Table/Table.jsx";
 import Card from "components/Card/Card.jsx";
 import CardHeader from "components/Card/CardHeader.jsx";
 import CardBody from "components/Card/CardBody.jsx";
+import { Link } from "react-router-dom";
 
 import "../../assets/css/dashboard.css";
 
@@ -44,26 +45,28 @@ const styles = {
 
 class ProductsList extends Component {
   state = {
-    chargers: this.props.location.data
+    chargers: this.props.location.data[0]
   };
   render() {
     const chargerList = this.state.chargers.map(list => (
-      <a className="areaCardBody" href="#">
-        <div className="areaCardImage">
-          <img src={list.avatar} alt="..." class="avatar" />
-        </div>
-        <div className="areaCardText">
-          <h3 style={{ color: "#60B664" }}>{list.name}</h3>
-        </div>
-      </a>
+      <Link to="">
+        <a className="areaCardBody">
+          <div className="areaCardImage">
+            <img src={list.avatar} alt="..." class="avatar" />
+          </div>
+          <div className="areaCardText">
+            <h3 style={{ color: "#60B664" }}>{list.name}</h3>
+          </div>
+        </a>
+      </Link>
     ));
     return (
       <GridItem xs={12} sm={12} md={12}>
         <Card xs={12} sm={12} md={12}>
           <CardHeader color="success" className="areaHeader">
-            <p className="areaHeaderText">Chargers</p>
+            <p className="areaHeaderText">{this.props.location.data[1]}</p>
             <div style={{ flex: 1 }} />
-            <a href="#" onClick={e => e.preventDefault()}>
+            <a href="" onClick={e => e.preventDefault()}>
               <i class="material-icons addIcon">add_circle_outline</i>
             </a>
           </CardHeader>

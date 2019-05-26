@@ -47,7 +47,7 @@ class Products extends React.Component {
   state = {
     products: [
       {
-        name: "chargers",
+        name: "Chargers",
         avatar: avatar,
         link: "products/items",
         data: [
@@ -56,7 +56,7 @@ class Products extends React.Component {
         ]
       },
       {
-        name: "mobiles",
+        name: "Mobiles",
         avatar: avatar,
         link: "products/items",
         data: [
@@ -65,7 +65,7 @@ class Products extends React.Component {
         ]
       },
       {
-        name: "computers",
+        name: "Computers",
         avatar: avatar,
         link: "products/items",
         data: [
@@ -74,7 +74,7 @@ class Products extends React.Component {
         ]
       },
       {
-        name: "laptops",
+        name: "Laptops",
         avatar: avatar,
         link: "products/items",
         data: [
@@ -83,7 +83,7 @@ class Products extends React.Component {
         ]
       },
       {
-        name: "watches",
+        name: "Watches",
         avatar: avatar,
         link: "products/items",
         data: [
@@ -92,7 +92,7 @@ class Products extends React.Component {
         ]
       },
       {
-        name: "dispensers",
+        name: "Dispensers",
         avatar: avatar,
         link: "products/items",
         data: [
@@ -106,7 +106,7 @@ class Products extends React.Component {
     const productsList = this.state.products.map(products => (
       <Link
         className="areaCardBody"
-        to={{ pathname: products.link, data: products.data }}
+        to={{ pathname: products.link, data: [products.data, products.name] }}
       >
         <div className="areaCardImage">
           <img src={products.avatar} alt="..." class="avatar" />

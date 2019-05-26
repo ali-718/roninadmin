@@ -49,7 +49,7 @@ class Dashboard extends React.Component {
     anchorEl: null,
     products: [
       {
-        name: "chargers",
+        name: "Chargers",
         avatar: avatar,
         link: "products/items",
         data: [
@@ -58,7 +58,7 @@ class Dashboard extends React.Component {
         ]
       },
       {
-        name: "mobiles",
+        name: "Mobiles",
         avatar: avatar,
         link: "products/items",
         data: [
@@ -67,7 +67,7 @@ class Dashboard extends React.Component {
         ]
       },
       {
-        name: "computers",
+        name: "Computers",
         avatar: avatar,
         link: "products/items",
         data: [
@@ -76,7 +76,7 @@ class Dashboard extends React.Component {
         ]
       },
       {
-        name: "laptops",
+        name: "Laptops",
         avatar: avatar,
         link: "products/items",
         data: [
@@ -85,7 +85,7 @@ class Dashboard extends React.Component {
         ]
       },
       {
-        name: "watches",
+        name: "Watches",
         avatar: avatar,
         link: "products/items",
         data: [
@@ -94,7 +94,7 @@ class Dashboard extends React.Component {
         ]
       },
       {
-        name: "dispensers",
+        name: "Dispensers",
         avatar: avatar,
         link: "products/items",
         data: [
@@ -124,7 +124,7 @@ class Dashboard extends React.Component {
     const productsList = this.state.products.map(products => (
       <Link
         className="areaCardBody"
-        to={{ pathname: products.link, data: products.data }}
+        to={{ pathname: products.link, data: [products.data, products.name] }}
       >
         <div className="areaCardImage">
           <img src={products.avatar} alt="..." class="avatar" />
@@ -195,7 +195,12 @@ class Dashboard extends React.Component {
           <GridItem xs={12} sm={12} md={12}>
             <Card xs={12} sm={12} md={12}>
               <CardHeader color="primary" className="areaHeader">
-                <p className="areaHeaderText">Area Management</p>
+                <Link
+                  style={{ textDecoration: "none", color: "white" }}
+                  to="area"
+                >
+                  <p className="areaHeaderText">Area Management</p>
+                </Link>
                 <div style={{ flex: 1 }} />
                 <a href="#" onClick={e => e.preventDefault()}>
                   <i class="material-icons addIcon">add_circle_outline</i>
@@ -258,7 +263,12 @@ class Dashboard extends React.Component {
           <GridItem xs={12} sm={12} md={12}>
             <Card xs={12} sm={12} md={12}>
               <CardHeader color="warning" className="areaHeader">
-                <p className="areaHeaderText">Products</p>
+                <Link
+                  style={{ textDecoration: "none", color: "white" }}
+                  to="products"
+                >
+                  <p className="areaHeaderText">Products</p>
+                </Link>
                 <div style={{ flex: 1 }} />
                 <a href="#" onClick={e => e.preventDefault()}>
                   <i class="material-icons addIcon">add_circle_outline</i>
