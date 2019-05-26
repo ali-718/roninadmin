@@ -11,7 +11,7 @@ import CardHeader from "components/Card/CardHeader.jsx";
 import CardBody from "components/Card/CardBody.jsx";
 
 import "../../assets/css/dashboard.css";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const styles = {
   cardCategoryWhite: {
@@ -43,71 +43,102 @@ const styles = {
   }
 };
 
-function Products(props) {
-  const { classes } = props;
-  return (
-    <GridItem xs={12} sm={12} md={12}>
-      <Card xs={12} sm={12} md={12}>
-        <CardHeader color="warning" className="areaHeader">
-          <p className="areaHeaderText">Category Management</p>
-          <div style={{ flex: 1 }} />
-          <a href="#" onClick={e => e.preventDefault()}>
-            <i class="material-icons addIcon">add_circle_outline</i>
-          </a>
-        </CardHeader>
-        <CardBody className="productsPage">
-          <Link className="areaCardBody" to={{pathname:"products/chargers"}}>
-            <div className="areaCardImage">
-              <img src={avatar} alt="..." style={{ width: 100, height: 100 }} />
-            </div>
-            <div className="areaCardText">
-              <h3>Charger</h3>
-            </div>
-          </Link>
-          <a className="areaCardBody" href="#pas">
-            <div className="areaCardImage">
-              <img src={avatar} alt="..." style={{ width: 100, height: 100 }} />
-            </div>
-            <div className="areaCardText">
-              <h3>Data cable</h3>
-            </div>
-          </a>
-          <a className="areaCardBody" href="#pas">
-            <div className="areaCardImage">
-              <img src={avatar} alt="..." style={{ width: 100, height: 100 }} />
-            </div>
-            <div className="areaCardText">
-              <h3>Mobiles</h3>
-            </div>
-          </a>
-          <a className="areaCardBody" href="#pas">
-            <div className="areaCardImage">
-              <img src={avatar} alt="..." style={{ width: 100, height: 100 }} />
-            </div>
-            <div className="areaCardText">
-              <h3>Laptops</h3>
-            </div>
-          </a>
-          <a className="areaCardBody" href="#pas">
-            <div className="areaCardImage">
-              <img src={avatar} alt="..." style={{ width: 100, height: 100 }} />
-            </div>
-            <div className="areaCardText">
-              <h3>Camera</h3>
-            </div>
-          </a>
-          <a className="areaCardBody" href="#pas">
-            <div className="areaCardImage">
-              <img src={avatar} alt="..." style={{ width: 100, height: 100 }} />
-            </div>
-            <div className="areaCardText">
-              <h3>Dispenser</h3>
-            </div>
-          </a>
-        </CardBody>
-      </Card>
-    </GridItem>
-  );
+class Products extends React.Component {
+  state = {
+    products: [
+      {
+        name: "chargers",
+        avatar: avatar,
+        link: "products/items",
+        data: [
+          { name: "Samsung Charger", avatar: avatar },
+          { name: "Apple Charger", avatar: avatar }
+        ]
+      },
+      {
+        name: "mobiles",
+        avatar: avatar,
+        link: "products/items",
+        data: [
+          { name: "Samsung Galaxy S8", avatar: avatar },
+          { name: "Apple Iphone X", avatar: avatar }
+        ]
+      },
+      {
+        name: "computers",
+        avatar: avatar,
+        link: "products/items",
+        data: [
+          { name: "HP Pavillion X360", avatar: avatar },
+          { name: "Apple Macbook Pro", avatar: avatar }
+        ]
+      },
+      {
+        name: "laptops",
+        avatar: avatar,
+        link: "products/items",
+        data: [
+          { name: "Acer Predator", avatar: avatar },
+          { name: "Dell Alienware", avatar: avatar }
+        ]
+      },
+      {
+        name: "watches",
+        avatar: avatar,
+        link: "products/items",
+        data: [
+          { name: "Titan", avatar: avatar },
+          { name: "Rolex", avatar: avatar }
+        ]
+      },
+      {
+        name: "dispensers",
+        avatar: avatar,
+        link: "products/items",
+        data: [
+          { name: "Hitachi Water Dispenser", avatar: avatar },
+          { name: "Toshiba Water Dispenser", avatar: avatar }
+        ]
+      }
+    ]
+  };
+  render() {
+    const productsList = this.state.products.map(products => (
+      <Link
+        className="areaCardBody"
+        to={{ pathname: products.link, data: products.data }}
+      >
+        <div className="areaCardImage">
+          <img src={products.avatar} alt="..." class="avatar" />
+        </div>
+        <div className="areaCardText">
+          <h3>{products.name}</h3>
+        </div>
+      </Link>
+    ));
+    return (
+      <GridItem xs={12} sm={12} md={12}>
+        <Card xs={12} sm={12} md={12}>
+          <CardHeader color="warning" className="areaHeader">
+            <p className="areaHeaderText">Category Management</p>
+            <div style={{ flex: 1 }} />
+            <a href="#" onClick={e => e.preventDefault()}>
+              <i class="material-icons addIcon">add_circle_outline</i>
+            </a>
+          </CardHeader>
+          <CardBody className="productsPage">
+            {this.state.products.length == 0 ? (
+              <div className="areaCardText">
+                <h3>There is nothing to show</h3>
+              </div>
+            ) : (
+              productsList
+            )}
+          </CardBody>
+        </Card>
+      </GridItem>
+    );
+  }
 }
 
 export default withStyles(styles)(Products);

@@ -55,7 +55,7 @@ function Area(props) {
         <CardBody>
           <a className="areaCardBody" href="#pas">
             <div className="areaCardImage">
-              <img src={avatar} alt="..." style={{ width: 100, height: 100 }} />
+              <img src={avatar} alt="..." class="avatar" />
             </div>
             <div className="areaCardText">
               <h3>Saddar</h3>
@@ -63,7 +63,7 @@ function Area(props) {
           </a>
           <a className="areaCardBody" href="#pas">
             <div className="areaCardImage">
-              <img src={avatar} alt="..." style={{ width: 100, height: 100 }} />
+              <img src={avatar} alt="..." class="avatar" />
             </div>
             <div className="areaCardText">
               <h3>Hadeed</h3>
@@ -71,7 +71,7 @@ function Area(props) {
           </a>
           <a className="areaCardBody" href="#pas">
             <div className="areaCardImage">
-              <img src={avatar} alt="..." style={{ width: 100, height: 100 }} />
+              <img src={avatar} alt="..." class="avatar" />
             </div>
             <div className="areaCardText">
               <h3>Malir</h3>
@@ -79,7 +79,7 @@ function Area(props) {
           </a>
           <a className="areaCardBody" href="#pas">
             <div className="areaCardImage">
-              <img src={avatar} alt="..." style={{ width: 100, height: 100 }} />
+              <img src={avatar} alt="..." class="avatar" />
             </div>
             <div className="areaCardText">
               <h3>Gulshan</h3>

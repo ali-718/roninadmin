@@ -6,6 +6,7 @@ import ChartistGraph from "react-chartist";
 // @material-ui/core
 import withStyles from "@material-ui/core/styles/withStyles";
 import Icon from "@material-ui/core/Icon";
+import { Link } from "react-router-dom";
 // @material-ui/icons
 import Store from "@material-ui/icons/Store";
 import Warning from "@material-ui/icons/Warning";
@@ -45,7 +46,63 @@ import dashboardStyle from "assets/jss/material-dashboard-react/views/dashboardS
 class Dashboard extends React.Component {
   state = {
     value: 0,
-    anchorEl: null
+    anchorEl: null,
+    products: [
+      {
+        name: "chargers",
+        avatar: avatar,
+        link: "products/items",
+        data: [
+          { name: "Samsung Charger", avatar: avatar },
+          { name: "Apple Charger", avatar: avatar }
+        ]
+      },
+      {
+        name: "mobiles",
+        avatar: avatar,
+        link: "products/items",
+        data: [
+          { name: "Samsung Galaxy S8", avatar: avatar },
+          { name: "Apple Iphone X", avatar: avatar }
+        ]
+      },
+      {
+        name: "computers",
+        avatar: avatar,
+        link: "products/items",
+        data: [
+          { name: "HP Pavillion X360", avatar: avatar },
+          { name: "Apple Macbook Pro", avatar: avatar }
+        ]
+      },
+      {
+        name: "laptops",
+        avatar: avatar,
+        link: "products/items",
+        data: [
+          { name: "Acer Predator", avatar: avatar },
+          { name: "Dell Alienware", avatar: avatar }
+        ]
+      },
+      {
+        name: "watches",
+        avatar: avatar,
+        link: "products/items",
+        data: [
+          { name: "Titan", avatar: avatar },
+          { name: "Rolex", avatar: avatar }
+        ]
+      },
+      {
+        name: "dispensers",
+        avatar: avatar,
+        link: "products/items",
+        data: [
+          { name: "Hitachi Water Dispenser", avatar: avatar },
+          { name: "Toshiba Water Dispenser", avatar: avatar }
+        ]
+      }
+    ]
   };
   handleChange = (event, value) => {
     this.setState({ value });
@@ -64,6 +121,19 @@ class Dashboard extends React.Component {
   };
   render() {
     const { classes } = this.props;
+    const productsList = this.state.products.map(products => (
+      <Link
+        className="areaCardBody"
+        to={{ pathname: products.link, data: products.data }}
+      >
+        <div className="areaCardImage">
+          <img src={products.avatar} alt="..." class="avatar" />
+        </div>
+        <div className="areaCardText">
+          <h3>{products.name}</h3>
+        </div>
+      </Link>
+    ));
     return (
       <div>
         <GridContainer>
@@ -195,78 +265,13 @@ class Dashboard extends React.Component {
                 </a>
               </CardHeader>
               <CardBody className="productsScroll">
-                <a className="areaCardBody" href="#pas">
-                  <div className="areaCardImage">
-                    <img
-                      src={avatar}
-                      alt="..."
-                      style={{ width: 100, height: 100 }}
-                    />
-                  </div>
+                {this.state.products.length == 0 ? (
                   <div className="areaCardText">
-                    <h3>Charger</h3>
+                    <h3>There is nothing to show</h3>
                   </div>
-                </a>
-                <a className="areaCardBody" href="#pas">
-                  <div className="areaCardImage">
-                    <img
-                      src={avatar}
-                      alt="..."
-                      style={{ width: 100, height: 100 }}
-                    />
-                  </div>
-                  <div className="areaCardText">
-                    <h3>Data cable</h3>
-                  </div>
-                </a>
-                <a className="areaCardBody" href="#pas">
-                  <div className="areaCardImage">
-                    <img
-                      src={avatar}
-                      alt="..."
-                      style={{ width: 100, height: 100 }}
-                    />
-                  </div>
-                  <div className="areaCardText">
-                    <h3>Mobiles</h3>
-                  </div>
-                </a>
-                <a className="areaCardBody" href="#pas">
-                  <div className="areaCardImage">
-                    <img
-                      src={avatar}
-                      alt="..."
-                      style={{ width: 100, height: 100 }}
-                    />
-                  </div>
-                  <div className="areaCardText">
-                    <h3>Laptops</h3>
-                  </div>
-                </a>
-                <a className="areaCardBody" href="#pas">
-                  <div className="areaCardImage">
-                    <img
-                      src={avatar}
-                      alt="..."
-                      style={{ width: 100, height: 100 }}
-                    />
-                  </div>
-                  <div className="areaCardText">
-                    <h3>Camera</h3>
-                  </div>
-                </a>
-                <a className="areaCardBody" href="#pas">
-                  <div className="areaCardImage">
-                    <img
-                      src={avatar}
-                      alt="..."
-                      style={{ width: 100, height: 100 }}
-                    />
-                  </div>
-                  <div className="areaCardText">
-                    <h3>Dispenser</h3>
-                  </div>
-                </a>
+                ) : (
+                  productsList
+                )}
               </CardBody>
             </Card>
           </GridItem>

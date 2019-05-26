@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React from "react";
 import PropTypes from "prop-types";
-import { Switch, Route, Redirect,Link } from "react-router-dom";
+import { Switch, Route, Redirect, Link } from "react-router-dom";
 // creates a beautiful scrollbar
 import PerfectScrollbar from "perfect-scrollbar";
 import "perfect-scrollbar/css/perfect-scrollbar.css";
@@ -19,19 +19,10 @@ import dashboardStyle from "assets/jss/material-dashboard-react/layouts/dashboar
 
 import image from "assets/img/sidebar-2.jpg";
 import logo from "assets/img/reactlogo.png";
-import Chargers from 'views/products/chargers.jsx';
-import DashboardPage from 'views/Dashboard/Dashboard.jsx';
-import Products from 'views/products/products.jsx';
-import Area from 'views/Area/Area.jsx';
-
-const switchRoutes = (
-  <Switch>
-    <Route path="/admin/chargers" component={Chargers} />
-    <Route path="/admin/dashboard" component={Chargers} />
-    <Route path="/chargers" component={Chargers} />
-    <Route path="/chargers" component={Chargers} />
-  </Switch>
-);
+import DashboardPage from "views/Dashboard/Dashboard.jsx";
+import Products from "views/products/products.jsx";
+import productsList from "views/products/productsList.jsx";
+import Area from "views/Area/Area.jsx";
 
 class Dashboard extends React.Component {
   constructor(props) {
@@ -114,15 +105,20 @@ class Dashboard extends React.Component {
             <div className={classes.map}>{switchRoutes}</div>
           )} */}
           <Switch>
-          <div className={classes.content}>
-              <div className={classes.container}><Route path="/admin/dashboard" component={DashboardPage} /></div>
-              <div className={classes.container}><Route exact path="/admin/area" component={Area} /></div>
-              <div className={classes.container}><Route exact path="/admin/products" component={Products} /></div>
-              <div className={classes.container}><Route path="/admin/products/chargers" component={Chargers} /></div>
-              <div className={classes.container}></div>
-              <div className={classes.container}></div>
+            <div className={classes.content}>
+              <div className={classes.container}>
+                <Route path="/admin/dashboard" component={DashboardPage} />
+              </div>
+              <div className={classes.container}>
+                <Route exact path="/admin/area" component={Area} />
+              </div>
+              <div className={classes.container}>
+                <Route exact path="/admin/products" component={Products} />
+              </div>
+              <div className={classes.container}>
+                <Route path="/admin/products/items" component={productsList} />
+              </div>
             </div>
-            <Route path="/chargers" component={Chargers} />
           </Switch>
           {this.getRoute() ? <Footer /> : null}
         </div>

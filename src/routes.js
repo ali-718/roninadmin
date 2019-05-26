@@ -18,7 +18,6 @@ import Maps from "views/Maps/Maps.jsx";
 import NotificationsPage from "views/Notifications/Notifications.jsx";
 import Area from "views/Area/Area.jsx";
 import Products from "views/products/products.jsx";
-import Chargers from "views/products/chargers.jsx";
 // core components/views for RTL layout
 import RTLPage from "views/RTLPage/RTLPage.jsx";
 
@@ -86,7 +85,7 @@ const dashboardRoutes = [
     icon: Notifications,
     component: NotificationsPage,
     layout: "/admin"
-  },
+  }
   // {
   //   path: "/chargers",
   //   name: () => null,
