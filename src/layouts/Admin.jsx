@@ -12,6 +12,7 @@ import Navbar from "components/Navbars/Navbar.jsx";
 import Footer from "components/Footer/Footer.jsx";
 import Sidebar from "components/Sidebar/Sidebar.jsx";
 import FixedPlugin from "components/FixedPlugin/FixedPlugin.jsx";
+import Error from "views/Notfound/error.jsx";
 
 import routes from "routes.js";
 
@@ -104,22 +105,17 @@ class Dashboard extends React.Component {
           ) : (
             <div className={classes.map}>{switchRoutes}</div>
           )} */}
-          <Switch>
             <div className={classes.content}>
               <div className={classes.container}>
-                <Route path="/admin/dashboard" component={DashboardPage} />
-              </div>
-              <div className={classes.container}>
-                <Route exact path="/admin/area" component={Area} />
-              </div>
-              <div className={classes.container}>
-                <Route exact path="/admin/products" component={Products} />
-              </div>
-              <div className={classes.container}>
-                <Route path="/admin/products/items" component={productsList} />
+                <Switch>      
+                  <Route path="/admin/dashboard" component={DashboardPage} />
+                  <Route path="/admin/area" component={Area} />
+                  <Route exact path="/admin/products" component={Products} />
+                  <Route path="/admin/products/items" component={productsList} />
+                  <Route component={Error} />
+                </Switch>
               </div>
             </div>
-          </Switch>
         </div>
       </div>
     );

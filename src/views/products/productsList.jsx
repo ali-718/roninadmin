@@ -72,7 +72,7 @@ class ProductsList extends Component {
           </CardHeader>
           <CardBody className="productsPage">
             {this.state.chargers.length == 0 ? 
-          <Redirect from="/admin/products/items" to={this.props.history.goBack()} />: chargerList
+          <Redirect from="/admin/products/items" to={this.props.history.go(-1)} />: chargerList
             }
           </CardBody>
         </Card>
