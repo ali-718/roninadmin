@@ -9,7 +9,7 @@ import Table from "components/Table/Table.jsx";
 import Card from "components/Card/Card.jsx";
 import CardHeader from "components/Card/CardHeader.jsx";
 import CardBody from "components/Card/CardBody.jsx";
-import { Link, Redirect } from "react-router-dom";
+import { Link, Redirect,Route } from "react-router-dom";
 
 import "../../assets/css/dashboard.css";
 
@@ -72,7 +72,7 @@ class ProductsList extends Component {
           </CardHeader>
           <CardBody className="productsPage">
             {this.state.chargers.length == 0 ? 
-          <Redirect from="/admin/products/items" to="/admin/products" /> : chargerList
+          <Redirect from="/admin/products/items" to={this.props.history.goBack()} />: chargerList
             }
           </CardBody>
         </Card>
